@@ -1,0 +1,109 @@
+등록번호	상품명	등록자	조회수	등록날짜
+상품상세정보
+등록번호	2
+상품명	0번 째 상품명
+등록자	더미작성자0
+조회수	0
+등록날짜	2020-03-30
+최종수정날짜	2020-03-30
+등록번호	2
+상품이미지	NONE
+
+
+
+
+CREATE TABLE "TBL_ARTICLE" 
+   (	"ANO" NUMBER(5,0) NOT NULL ENABLE, 
+	"TITLE" VARCHAR2(30) NOT NULL ENABLE, 
+	"AUTHOR" VARCHAR2(20) NOT NULL ENABLE, 
+	"READCOUNT" NUMBER DEFAULT 0 NOT NULL ENABLE, 
+	"REGD8" DATE NOT NULL ENABLE, 
+	"MODD8" DATE NOT NULL ENABLE, 
+	"IMGFILE" VARCHAR2(100), 
+	 CONSTRAINT "TBL_ARTICLE_PK" PRIMARY KEY ("ANO")
+
+
+CREATE SEQUENCE SPRINGDB.SEQ_ARTICLE INCREMENT BY 1 MINVALUE 0 MAXVALUE 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999 NOCYCLE NOCACHE NOORDER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+데이터베이스  - 샘플
+insert. first   
+w? jnit -  dao.insert - sampledata
+
+1.insert 
+create table 
+service 
+dao
+mapper 
+test
+ctl mapping
+verification 
+
+
+
+2. dummy insert 
+
+
+
+	 
+
+서비스 메소드는 매퍼 그대로 가자 
+다오 
+Insert  vo
+SelectList 
+Selectone no 
+Update vo 
+Delete no 
+Selectone  return count 
+Updateimg 이미지 삭제 
+
+
+페이징 
+클라 - 섭 
+Cri 객체
+Pageno, amount 
+
+페이징
+Pagevo 
+Param: Pageno, total 
+Iv: prev 
+Start
+End 
+Rearend 
+Next 
+Ceiling 활용 
+
+뷰단 시간절약 
+Product 다 notice folder로 복사 
+Name 변경 
+Write, update 모두 multipart 
+
+Update는 jauery로 detail 변경 
+
+Query 지저분하지 않게 restful로 
+
+리스트는 paging을 주입 받는다.
+페이징 스프링 빈으로?
+
+다오 인터페이스로 왜 만들었더라

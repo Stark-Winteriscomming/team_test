@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NoticeMapper">
+	<sql id="nno_cond">
+		where nno = #{nno}
+	</sql>
+	<insert id="write" parameterType="nvo">
+		insert into tbl_notice values(
+		seq_notice.nextval,
+		#{title}, 
+		#{writer}, 
+		sysdate, 
+		sysdate, 
+		0, 
+		#{imgfile},
+		#{content} 
+		)
+	</insert>
+	<select id="detail" parameterType="i" resultType="nvo">
+		select * from tbl_notice <include refid="nno_cond" />
+	</select>
+	<select id="list" resultType="nvo" parameterType="cri">
+		<![CDATA[
+		SELECT nno, title, writer, modd8 FROM (
+			SELECT /*+INDEX_DESC(tbl_notice tbl_notice_pk)*/
+				rownum rn, nno, title, writer, readcount, modd8 FROM TBL_NOTICE
+			WHERE rownum <= (#{pageNum} * #{amount}))
+		WHERE rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+	<update id="modify" parameterType="nvo">
+		update tbl_notice set
+		title=#{title}
+		modd8=sysdate
+		imgfile=#{imgfile}
+		content=#{content}
+		<include refid="nno_cond" />
+	</update>
+	<delete id="remove" parameterType="i">
+		delete from tbl_notice 
+		<include refid="nno_cond" />
+	</delete>
+	<update id="rmImg" parameterType="m">
+		update tbl_notice set
+		imgfile = #{imgfile} 
+		<include refid="nno_cond" />
+	</update> 
+	<select id="totalCnt" resultType="i">
+		select count(nno) from tbl_notice
+	</select>
+</mapper>

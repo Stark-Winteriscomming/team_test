@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ArticleMapper">
+	<insert id="add" parameterType="avo">
+		INSERT INTO TBL_ARTICLE
+		(ANO, TITLE, AUTHOR, READCOUNT, REGD8, MODD8, IMGFILE)
+		VALUES(seq_article.nextval, #{title}, #{author}, 0 , sysdate, sysdate, #{imgfile})
+	</insert>
+</mapper>

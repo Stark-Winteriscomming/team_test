@@ -1,0 +1,17 @@
+ 
+
+url - ctrl mapping 
+
+list
+/notice/
+
+write
+/notice/w
+
+detail
+/notice/d/{pno} 
+
+remove
+/notice/r/{pno}
+
+
